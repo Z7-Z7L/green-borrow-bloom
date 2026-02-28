@@ -8,7 +8,7 @@ interface BookCardProps {
 }
 
 export default function BookCard({ book, onSelect }: BookCardProps) {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <button
@@ -18,7 +18,7 @@ export default function BookCard({ book, onSelect }: BookCardProps) {
       <div className="relative aspect-[3/4] overflow-hidden bg-muted">
         <img
           src={book.cover}
-          alt={`Cover of ${book.title}`}
+          alt={`Cover of ${book.title[lang]}`}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
@@ -34,12 +34,12 @@ export default function BookCard({ book, onSelect }: BookCardProps) {
       </div>
       <div className="flex flex-1 flex-col p-4">
         <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          {book.genre}
+          {book.genre[lang]}
         </p>
         <h3 className="mt-1 font-serif text-lg font-semibold leading-snug text-card-foreground">
-          {book.title}
+          {book.title[lang]}
         </h3>
-        <p className="mt-1 text-sm text-muted-foreground">{book.author}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{book.author[lang]}</p>
       </div>
     </button>
   );

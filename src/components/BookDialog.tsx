@@ -35,7 +35,7 @@ export default function BookDialog({ book, open, onClose, onBorrow }: BookDialog
   const [email, setEmail] = useState("");
   const [startDate, setStartDate] = useState<Date | undefined>(new Date());
   const [endDate, setEndDate] = useState<Date | undefined>(addDays(new Date(), 14));
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const maxEnd = startDate ? addDays(startDate, 30) : addDays(new Date(), 30);
   const duration = startDate && endDate ? differenceInDays(endDate, startDate) : 0;
@@ -59,7 +59,7 @@ export default function BookDialog({ book, open, onClose, onBorrow }: BookDialog
     }
     onBorrow(book.id, name, email, startDate, endDate);
     setStep("success");
-    toast.success(`"${book.title}" has been reserved for you!`);
+    toast.success(`"${book.title[lang]}" has been reserved for you!`);
   };
 
   if (!book) return null;
@@ -70,17 +70,17 @@ export default function BookDialog({ book, open, onClose, onBorrow }: BookDialog
         {step === "details" && (
           <>
             <DialogHeader>
-              <DialogTitle className="font-serif text-2xl">{book.title}</DialogTitle>
+              <DialogTitle className="font-serif text-2xl">{book.title[lang]}</DialogTitle>
               <DialogDescription>
-                by {book.author} · {book.year}
+                {book.author[lang]} · {book.year}
               </DialogDescription>
             </DialogHeader>
             <div className="flex gap-4">
-              <img src={book.cover} alt={book.title} className="h-48 w-32 rounded-md object-cover shadow-md" />
+              <img src={book.cover} alt={book.title[lang]} className="h-48 w-32 rounded-md object-cover shadow-md" />
               <div className="flex-1 space-y-2 text-sm">
-                <p className="text-foreground">{book.description}</p>
+                <p className="text-foreground">{book.description[lang]}</p>
                 <div className="mt-3 space-y-1 text-muted-foreground">
-                  <p>{t.genre}: <span className="text-foreground">{book.genre}</span></p>
+                  <p>{t.genre}: <span className="text-foreground">{book.genre[lang]}</span></p>
                   <p>{t.pages}: <span className="text-foreground">{book.pages}</span></p>
                   <p>ISBN: <span className="text-foreground">{book.isbn}</span></p>
                 </div>
@@ -101,7 +101,7 @@ export default function BookDialog({ book, open, onClose, onBorrow }: BookDialog
           <>
             <DialogHeader>
               <DialogTitle className="font-serif text-xl">
-                {t.borrowThis} — "{book.title}"
+                {t.borrowThis} — "{book.title[lang]}"
               </DialogTitle>
               <DialogDescription>{t.fillDetails}</DialogDescription>
             </DialogHeader>
@@ -171,7 +171,7 @@ export default function BookDialog({ book, open, onClose, onBorrow }: BookDialog
             <CheckCircle2 className="mb-4 h-16 w-16 text-leaf" />
             <h3 className="font-serif text-2xl font-semibold">{t.bookingConfirmed}</h3>
             <p className="mt-2 text-muted-foreground">
-              {t.youBorrowed} <span className="font-medium text-foreground">"{book.title}"</span> — {duration} {duration > 1 ? t.days : t.day}.
+              {t.youBorrowed} <span className="font-medium text-foreground">"{book.title[lang]}"</span> — {duration} {duration > 1 ? t.days : t.day}.
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
               {t.returnBy} {endDate ? format(endDate, "MMMM d, yyyy") : "—"}

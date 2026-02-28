@@ -13,7 +13,7 @@ import { useLang } from "@/hooks/useLang";
 
 export default function MostBorrowedDialog() {
   const [open, setOpen] = useState(false);
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const data = getMostBorrowedBooks();
 
   return (
@@ -46,9 +46,9 @@ export default function MostBorrowedDialog() {
                   </span>
                   <div className="flex-1 min-w-0">
                     <p className="truncate font-serif font-semibold text-card-foreground">
-                      {item.title}
+                      {item.title[lang]}
                     </p>
-                    <p className="text-sm text-muted-foreground">{item.author}</p>
+                    <p className="text-sm text-muted-foreground">{item.author[lang]}</p>
                   </div>
                   <span className="shrink-0 text-sm font-medium text-muted-foreground">
                     {item.borrowCount} {t.timesLabel}

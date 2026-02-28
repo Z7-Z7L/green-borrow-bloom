@@ -4,10 +4,10 @@ type Lang = "en" | "ar";
 
 const translations = {
   en: {
-    brand: "Greenleaf Library",
+    brand: "Green Clover Library",
     catalog: "Catalog",
     about: "About",
-    heroWelcome: "Welcome to Greenleaf",
+    heroWelcome: "Welcome to Green Clover",
     heroTitle: "Discover Your Next Great Read",
     heroDesc: "Browse our curated collection and borrow books for up to 30 days. A natural reading experience, rooted in community.",
     browseCatalog: "Browse Catalog",
@@ -35,7 +35,7 @@ const translations = {
     done: "Done",
     fillDetails: "Fill in your details and pick a return date (max 30 days).",
     footerDesc: "A community library rooted in the love of reading and nature. Borrow books for free, up to 30 days at a time.",
-    allRights: "© 2026 Greenleaf Library. All rights reserved.",
+    allRights: "© 2026 Green Clover Library. All rights reserved.",
     mostBorrowed: "Most Borrowed",
     mostBorrowedTitle: "Most Borrowed Books",
     mostBorrowedDesc: "See which books are trending in our community.",
@@ -44,12 +44,13 @@ const translations = {
     genre: "Genre",
     pages: "Pages",
     yourName: "Your name",
+    team: "Our Team",
   },
   ar: {
-    brand: "مكتبة الورقة الخضراء",
+    brand: "مكتبة البرسيم الأخضر",
     catalog: "الكتالوج",
     about: "حول",
-    heroWelcome: "أهلاً بكم في الورقة الخضراء",
+    heroWelcome: "أهلاً بكم في البرسيم الأخضر",
     heroTitle: "اكتشف قراءتك القادمة",
     heroDesc: "تصفّح مجموعتنا المنتقاة واستعر الكتب لمدة تصل إلى 30 يوماً. تجربة قراءة طبيعية متجذرة في المجتمع.",
     browseCatalog: "تصفّح الكتالوج",
@@ -77,7 +78,7 @@ const translations = {
     done: "تم",
     fillDetails: "أدخل بياناتك واختر تاريخ الإرجاع (30 يوماً كحد أقصى).",
     footerDesc: "مكتبة مجتمعية متجذرة في حب القراءة والطبيعة. استعر الكتب مجاناً لمدة تصل إلى 30 يوماً.",
-    allRights: "© 2026 مكتبة الورقة الخضراء. جميع الحقوق محفوظة.",
+    allRights: "© 2026 مكتبة البرسيم الأخضر. جميع الحقوق محفوظة.",
     mostBorrowed: "الأكثر استعارة",
     mostBorrowedTitle: "الكتب الأكثر استعارة",
     mostBorrowedDesc: "شاهد الكتب الأكثر رواجاً في مجتمعنا.",
@@ -86,6 +87,7 @@ const translations = {
     genre: "النوع",
     pages: "الصفحات",
     yourName: "اسمك",
+    team: "فريق العمل",
   },
 } as const;
 

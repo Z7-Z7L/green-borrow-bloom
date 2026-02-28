@@ -13,13 +13,13 @@ interface CatalogSectionProps {
 export default function CatalogSection({ books, onSelectBook }: CatalogSectionProps) {
   const [search, setSearch] = useState("");
   const [activeGenre, setActiveGenre] = useState("All");
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   const filtered = books.filter((b) => {
     const matchesSearch =
-      b.title.toLowerCase().includes(search.toLowerCase()) ||
-      b.author.toLowerCase().includes(search.toLowerCase());
-    const matchesGenre = activeGenre === "All" || b.genre === activeGenre;
+      b.title[lang].toLowerCase().includes(search.toLowerCase()) ||
+      b.author[lang].toLowerCase().includes(search.toLowerCase());
+    const matchesGenre = activeGenre === "All" || b.genre.en === activeGenre;
     return matchesSearch && matchesGenre;
   });
 
@@ -44,15 +44,15 @@ export default function CatalogSection({ books, onSelectBook }: CatalogSectionPr
           <div className="flex flex-wrap gap-2">
             {genres.map((genre) => (
               <button
-                key={genre}
-                onClick={() => setActiveGenre(genre)}
+                key={genre.en}
+                onClick={() => setActiveGenre(genre.en)}
                 className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                  activeGenre === genre
+                  activeGenre === genre.en
                     ? "bg-primary text-primary-foreground"
                     : "bg-muted text-muted-foreground hover:bg-secondary"
                 }`}
               >
-                {genre}
+                {genre[lang]}
               </button>
             ))}
           </div>
