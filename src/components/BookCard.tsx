@@ -1,5 +1,6 @@
 import { Book } from "@/data/books";
 import { Badge } from "@/components/ui/badge";
+import { useLang } from "@/hooks/useLang";
 
 interface BookCardProps {
   book: Book;
@@ -7,10 +8,12 @@ interface BookCardProps {
 }
 
 export default function BookCard({ book, onSelect }: BookCardProps) {
+  const { t } = useLang();
+
   return (
     <button
       onClick={() => onSelect(book)}
-      className="group flex flex-col overflow-hidden rounded-lg border bg-card text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring"
+      className="group flex flex-col overflow-hidden rounded-lg border bg-card text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring rtl:text-right"
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-muted">
         <img
@@ -26,7 +29,7 @@ export default function BookCard({ book, onSelect }: BookCardProps) {
               : "bg-destructive text-destructive-foreground"
           }`}
         >
-          {book.available ? "Available" : "Borrowed"}
+          {book.available ? t.available : t.borrowed}
         </Badge>
       </div>
       <div className="flex flex-1 flex-col p-4">
