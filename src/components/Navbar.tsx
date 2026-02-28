@@ -1,22 +1,50 @@
-import { Leaf } from "lucide-react";
+import { Leaf, Globe } from "lucide-react";
+import { useLang } from "@/hooks/useLang";
+import MostBorrowedDialog from "./MostBorrowedDialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
+  const { t, lang, setLang } = useLang();
+
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <a href="/" className="flex items-center gap-2">
           <Leaf className="h-6 w-6 text-leaf" />
           <span className="font-serif text-xl font-semibold text-foreground">
-            Greenleaf Library
+            {t.brand}
           </span>
         </a>
-        <div className="flex items-center gap-6 text-sm font-medium">
-          <a href="#catalog" className="text-muted-foreground transition-colors hover:text-foreground">
-            Catalog
+        <div className="flex items-center gap-3 text-sm font-medium">
+          <a href="#catalog" className="hidden text-muted-foreground transition-colors hover:text-foreground sm:inline">
+            {t.catalog}
           </a>
-          <a href="#about" className="text-muted-foreground transition-colors hover:text-foreground">
-            About
+          <a href="#about" className="hidden text-muted-foreground transition-colors hover:text-foreground sm:inline">
+            {t.about}
           </a>
+          <MostBorrowedDialog />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="gap-1.5">
+                <Globe className="h-4 w-4" />
+                {lang === "en" ? "EN" : "AR"}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => setLang("en")} className={lang === "en" ? "font-semibold" : ""}>
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setLang("ar")} className={lang === "ar" ? "font-semibold" : ""}>
+                العربية
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </nav>
