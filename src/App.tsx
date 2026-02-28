@@ -15,7 +15,7 @@ const App = () => (
       <LangProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="green-borrow-bloom">
+        <BrowserRouter basename="/green-borrow-bloom">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
