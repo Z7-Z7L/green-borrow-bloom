@@ -45,6 +45,13 @@ const translations = {
     pages: "Pages",
     yourName: "Your name",
     team: "Our Team",
+    myAccount: "My Account",
+    borrowedBooksDesc: "Books you've borrowed and need to return",
+    borrowedOn: "Borrowed on",
+    returnBook: "Return Book",
+    noBorrowedBooks: "No borrowed books",
+    startBrowsing: "Browse our catalog to borrow your first book!",
+    suggestedBooks: "You might also like",
   },
   ar: {
     brand: "مكتبة البرسيم الأخضر",
@@ -88,6 +95,13 @@ const translations = {
     pages: "الصفحات",
     yourName: "اسمك",
     team: "فريق العمل",
+    myAccount: "حسابي",
+    borrowedBooksDesc: "الكتب التي استعرتها وتحتاج إلى إرجاعها",
+    borrowedOn: "تاريخ الاستعارة",
+    returnBook: "إرجاع الكتاب",
+    noBorrowedBooks: "لا توجد كتب مستعارة",
+    startBrowsing: "تصفّح الكتالوج لاستعارة كتابك الأول!",
+    suggestedBooks: "قد يعجبك أيضاً",
   },
 } as const;
 

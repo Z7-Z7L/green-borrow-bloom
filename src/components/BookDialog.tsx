@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { format, addDays, differenceInDays } from "date-fns";
-import { Book } from "@/data/books";
+import { Book, Booking } from "@/data/books";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,15 +21,18 @@ import { CalendarIcon, BookOpen, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useLang } from "@/hooks/useLang";
+import SuggestedBooks from "./SuggestedBooks";
 
 interface BookDialogProps {
   book: Book | null;
   open: boolean;
   onClose: () => void;
   onBorrow: (bookId: string, name: string, email: string, start: Date, end: Date) => void;
+  bookings: Booking[];
+  onSelectSuggested: (book: Book) => void;
 }
 
-export default function BookDialog({ book, open, onClose, onBorrow }: BookDialogProps) {
+export default function BookDialog({ book, open, onClose, onBorrow, bookings, onSelectSuggested }: BookDialogProps) {
   const [step, setStep] = useState<"details" | "form" | "success">("details");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -62,11 +65,16 @@ export default function BookDialog({ book, open, onClose, onBorrow }: BookDialog
     toast.success(`"${book.title[lang]}" has been reserved for you!`);
   };
 
+  const handleSelectSuggested = (suggestedBook: Book) => {
+    resetForm();
+    onSelectSuggested(suggestedBook);
+  };
+
   if (!book) return null;
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="max-w-lg border-border bg-background">
+      <DialogContent className="max-w-lg border-border bg-background max-h-[90vh] overflow-y-auto">
         {step === "details" && (
           <>
             <DialogHeader>
@@ -94,6 +102,7 @@ export default function BookDialog({ book, open, onClose, onBorrow }: BookDialog
               <BookOpen className="h-4 w-4" />
               {book.available ? t.borrowThis : t.unavailable}
             </Button>
+            <SuggestedBooks currentBook={book} bookings={bookings} onSelectBook={handleSelectSuggested} />
           </>
         )}
 

@@ -1,4 +1,4 @@
-import { Leaf, Globe } from "lucide-react";
+import { Leaf, Globe, User } from "lucide-react";
 import { useLang } from "@/hooks/useLang";
 import MostBorrowedDialog from "./MostBorrowedDialog";
 import {
@@ -8,14 +8,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { t, lang, setLang } = useLang();
+  const navigate = useNavigate();
 
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <a href="/" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2" onClick={(e) => { e.preventDefault(); navigate("/"); }}>
           <Leaf className="h-6 w-6 text-leaf" />
           <span className="font-serif text-xl font-semibold text-foreground">
             {t.brand}
@@ -29,6 +31,14 @@ export default function Navbar() {
             {t.about}
           </a>
           <MostBorrowedDialog />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => navigate("/account")}
+            className="text-muted-foreground hover:text-foreground"
+          >
+            <User className="h-5 w-5" />
+          </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="gap-1.5">
