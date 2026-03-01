@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Book } from "@/data/books";
-import { useLibrary } from "@/hooks/useLibrary";
+import { Book, Booking } from "@/data/books";
 
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -8,8 +7,13 @@ import CatalogSection from "@/components/CatalogSection";
 import BookDialog from "@/components/BookDialog";
 import Footer from "@/components/Footer";
 
-const Index = () => {
-  const { books, borrowBook } = useLibrary();
+interface IndexProps {
+  books: Book[];
+  bookings: Booking[];
+  borrowBook: (bookId: string, name: string, email: string, start: Date, end: Date) => void;
+}
+
+const Index = ({ books, bookings, borrowBook }: IndexProps) => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
   return (
@@ -22,6 +26,8 @@ const Index = () => {
         open={!!selectedBook}
         onClose={() => setSelectedBook(null)}
         onBorrow={borrowBook}
+        bookings={bookings}
+        onSelectSuggested={setSelectedBook}
       />
       <Footer />
     </div>
