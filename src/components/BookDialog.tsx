@@ -2,8 +2,6 @@ import { useState } from "react";
 import { format, addDays, differenceInDays } from "date-fns";
 import { Book, Booking } from "@/data/books";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
 import {
   Dialog,
@@ -17,52 +15,56 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { CalendarIcon, BookOpen, CheckCircle2 } from "lucide-react";
+import { CalendarIcon, BookOpen, CheckCircle2, LogIn } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useLang } from "@/hooks/useLang";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 import SuggestedBooks from "./SuggestedBooks";
 
 interface BookDialogProps {
   book: Book | null;
   open: boolean;
   onClose: () => void;
-  onBorrow: (bookId: string, name: string, email: string, start: Date, end: Date) => void;
+  onBorrow: (bookId: string, start: Date, end: Date) => Promise<Booking | null>;
   bookings: Booking[];
   onSelectSuggested: (book: Book) => void;
 }
 
 export default function BookDialog({ book, open, onClose, onBorrow, bookings, onSelectSuggested }: BookDialogProps) {
   const [step, setStep] = useState<"details" | "form" | "success">("details");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [startDate, setStartDate] = useState<Date | undefined>(new Date());
   const [endDate, setEndDate] = useState<Date | undefined>(addDays(new Date(), 14));
   const { t, lang } = useLang();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const maxEnd = startDate ? addDays(startDate, 30) : addDays(new Date(), 30);
   const duration = startDate && endDate ? differenceInDays(endDate, startDate) : 0;
 
   const resetForm = () => {
     setStep("details");
-    setName("");
-    setEmail("");
     setStartDate(new Date());
     setEndDate(addDays(new Date(), 14));
   };
 
   const handleClose = () => { resetForm(); onClose(); };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!book || !startDate || !endDate || !name.trim() || !email.trim()) return;
+    if (!book || !startDate || !endDate) return;
     if (duration < 1 || duration > 30) {
       toast.error("Duration must be between 1 and 30 days.");
       return;
     }
-    onBorrow(book.id, name, email, startDate, endDate);
-    setStep("success");
-    toast.success(`"${book.title[lang]}" has been reserved for you!`);
+    const result = await onBorrow(book.id, startDate, endDate);
+    if (result) {
+      setStep("success");
+      toast.success(`"${book.title[lang]}" has been reserved for you!`);
+    } else {
+      toast.error("Failed to borrow book. Please try again.");
+    }
   };
 
   const handleSelectSuggested = (suggestedBook: Book) => {
@@ -94,14 +96,24 @@ export default function BookDialog({ book, open, onClose, onBorrow, bookings, on
                 </div>
               </div>
             </div>
-            <Button
-              className="mt-4 w-full gap-2 bg-leaf text-leaf-foreground hover:bg-leaf/90"
-              disabled={!book.available}
-              onClick={() => setStep("form")}
-            >
-              <BookOpen className="h-4 w-4" />
-              {book.available ? t.borrowThis : t.unavailable}
-            </Button>
+            {user ? (
+              <Button
+                className="mt-4 w-full gap-2 bg-leaf text-leaf-foreground hover:bg-leaf/90"
+                disabled={!book.available}
+                onClick={() => setStep("form")}
+              >
+                <BookOpen className="h-4 w-4" />
+                {book.available ? t.borrowThis : t.unavailable}
+              </Button>
+            ) : (
+              <Button
+                className="mt-4 w-full gap-2 bg-leaf text-leaf-foreground hover:bg-leaf/90"
+                onClick={() => { handleClose(); navigate("/auth"); }}
+              >
+                <LogIn className="h-4 w-4" />
+                {t.loginToBorrow}
+              </Button>
+            )}
             <SuggestedBooks currentBook={book} bookings={bookings} onSelectBook={handleSelectSuggested} />
           </>
         )}
@@ -115,17 +127,9 @@ export default function BookDialog({ book, open, onClose, onBorrow, bookings, on
               <DialogDescription>{t.fillDetails}</DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">{t.fullName}</Label>
-                <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t.yourName} required />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">{t.email}</Label>
-                <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" required />
-              </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>{t.startDate}</Label>
+                  <label className="text-sm font-medium">{t.startDate}</label>
                   <Popover>
                     <PopoverTrigger asChild>
                       <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !startDate && "text-muted-foreground")}>
@@ -144,7 +148,7 @@ export default function BookDialog({ book, open, onClose, onBorrow, bookings, on
                   </Popover>
                 </div>
                 <div className="space-y-2">
-                  <Label>{t.returnDate}</Label>
+                  <label className="text-sm font-medium">{t.returnDate}</label>
                   <Popover>
                     <PopoverTrigger asChild>
                       <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !endDate && "text-muted-foreground")}>

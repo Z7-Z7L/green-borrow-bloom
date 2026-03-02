@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 interface IndexProps {
   books: Book[];
   bookings: Booking[];
-  borrowBook: (bookId: string, name: string, email: string, start: Date, end: Date) => void;
+  borrowBook: (bookId: string, start: Date, end: Date) => Promise<Booking | null>;
 }
 
 const Index = ({ books, bookings, borrowBook }: IndexProps) => {
