@@ -1,5 +1,6 @@
-import { Leaf, Globe, User } from "lucide-react";
+import { Leaf, Globe, User, LogOut } from "lucide-react";
 import { useLang } from "@/hooks/useLang";
+import { useAuth } from "@/hooks/useAuth";
 import MostBorrowedDialog from "./MostBorrowedDialog";
 import {
   DropdownMenu,
@@ -12,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { t, lang, setLang } = useLang();
+  const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
   return (
@@ -31,14 +33,36 @@ export default function Navbar() {
             {t.about}
           </a>
           <MostBorrowedDialog />
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => navigate("/account")}
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <User className="h-5 w-5" />
-          </Button>
+          {user ? (
+            <>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigate("/account")}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <User className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={async () => { await signOut(); navigate("/"); }}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <LogOut className="h-5 w-5" />
+              </Button>
+            </>
+          ) : (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate("/auth")}
+              className="gap-1.5 text-muted-foreground hover:text-foreground"
+            >
+              <User className="h-4 w-4" />
+              {t.signIn}
+            </Button>
+          )}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="gap-1.5">

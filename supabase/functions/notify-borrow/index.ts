@@ -30,7 +30,8 @@ serve(async (req) => {
       );
     }
 
-    const emailBody = `
+    // Email to library
+    const libraryEmailBody = `
       <h2>📚 New Book Borrowing Notification</h2>
       <p><strong>Book:</strong> ${bookTitle}</p>
       <p><strong>Borrower:</strong> ${borrowerName}</p>
@@ -39,7 +40,19 @@ serve(async (req) => {
       <p><strong>Return Date:</strong> ${endDate}</p>
     `;
 
-    const res = await fetch("https://api.resend.com/emails", {
+    // Email to borrower
+    const borrowerEmailBody = `
+      <h2>📚 Borrowing Confirmation</h2>
+      <p>Dear ${borrowerName},</p>
+      <p>You have successfully borrowed <strong>${bookTitle}</strong>.</p>
+      <p><strong>Start Date:</strong> ${startDate}</p>
+      <p><strong>Return Date:</strong> ${endDate}</p>
+      <p>Please return the book by the return date.</p>
+      <p>Thank you for using Green Clover Library! 🍀</p>
+    `;
+
+    // Send to library
+    await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,16 +60,27 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: "Green Clover Library <onboarding@resend.dev>",
-        to: ["green-clover-library@gmail.com"],
+        to: ["greencloverlibrary@gmail.com"],
         subject: `📚 New Borrowing: ${bookTitle}`,
-        html: emailBody,
+        html: libraryEmailBody,
       }),
     });
 
-    const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(`Email send failed [${res.status}]: ${JSON.stringify(data)}`);
+    // Send to borrower
+    if (borrowerEmail) {
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: "Green Clover Library <onboarding@resend.dev>",
+          to: [borrowerEmail],
+          subject: `📚 Borrowing Confirmed: ${bookTitle}`,
+          html: borrowerEmailBody,
+        }),
+      });
     }
 
     return new Response(
