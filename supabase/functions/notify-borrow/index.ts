@@ -14,73 +14,42 @@ serve(async (req) => {
   try {
     const { bookTitle, borrowerName, borrowerEmail, startDate, endDate } = await req.json();
 
-    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    const WEB3FORMS_API_KEY = Deno.env.get("WEB3FORMS_API_KEY");
 
-    if (!RESEND_API_KEY) {
-      console.log("RESEND_API_KEY not configured, logging notification instead:");
-      console.log(`Book borrowed: "${bookTitle}" by ${borrowerName} (${borrowerEmail})`);
-      console.log(`Period: ${startDate} to ${endDate}`);
-      
+    if (!WEB3FORMS_API_KEY) {
+      console.error("WEB3FORMS_API_KEY not configured");
       return new Response(
-        JSON.stringify({ 
-          success: true, 
-          message: "Notification logged (email not configured)" 
-        }),
-        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        JSON.stringify({ success: false, error: "API key not configured" }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    // Email to library
-    const libraryEmailBody = `
-      <h2>📚 New Book Borrowing Notification</h2>
-      <p><strong>Book:</strong> ${bookTitle}</p>
-      <p><strong>Borrower:</strong> ${borrowerName}</p>
-      <p><strong>Email:</strong> ${borrowerEmail}</p>
-      <p><strong>Start Date:</strong> ${startDate}</p>
-      <p><strong>Return Date:</strong> ${endDate}</p>
-    `;
-
-    // Email to borrower
-    const borrowerEmailBody = `
-      <h2>📚 Borrowing Confirmation</h2>
-      <p>Dear ${borrowerName},</p>
-      <p>You have successfully borrowed <strong>${bookTitle}</strong>.</p>
-      <p><strong>Start Date:</strong> ${startDate}</p>
-      <p><strong>Return Date:</strong> ${endDate}</p>
-      <p>Please return the book by the return date.</p>
-      <p>Thank you for using Green Clover Library! 🍀</p>
-    `;
-
-    // Send to library
-    await fetch("https://api.resend.com/emails", {
+    // Send notification to library
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "Green Clover Library <onboarding@resend.dev>",
-        to: ["greencloverlibrary@gmail.com"],
+        access_key: WEB3FORMS_API_KEY,
         subject: `📚 New Borrowing: ${bookTitle}`,
-        html: libraryEmailBody,
+        from_name: "Green Clover Library",
+        to: "greencloverlibrary@gmail.com",
+        "Book Title": bookTitle,
+        "Borrower Name": borrowerName,
+        "Borrower Email": borrowerEmail,
+        "Start Date": startDate,
+        "Return Date": endDate,
+        message: `${borrowerName} (${borrowerEmail}) has borrowed "${bookTitle}" from ${startDate} to ${endDate}.`,
       }),
     });
 
-    // Send to borrower
-    if (borrowerEmail) {
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: "Green Clover Library <onboarding@resend.dev>",
-          to: [borrowerEmail],
-          subject: `📚 Borrowing Confirmed: ${bookTitle}`,
-          html: borrowerEmailBody,
-        }),
-      });
+    const result = await response.json();
+
+    if (!result.success) {
+      console.error("Web3Forms error:", result);
+      return new Response(
+        JSON.stringify({ success: false, error: result.message }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     return new Response(
