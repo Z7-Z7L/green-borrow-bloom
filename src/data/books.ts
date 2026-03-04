@@ -1,3 +1,62 @@
+import cover1 from "@/assets/covers/cover-1.jpg";
+import cover2 from "@/assets/covers/cover-2.jpg";
+import cover3 from "@/assets/covers/cover-3.jpg";
+import cover4 from "@/assets/covers/cover-4.jpg";
+import cover5 from "@/assets/covers/cover-5.jpg";
+import cover6 from "@/assets/covers/cover-6.jpg";
+import cover7 from "@/assets/covers/cover-7.jpg";
+import cover8 from "@/assets/covers/cover-8.jpg";
+import cover9 from "@/assets/covers/cover-9.jpg";
+import cover10 from "@/assets/covers/cover-10.jpg";
+import cover11 from "@/assets/covers/cover-11.jpg";
+import cover12 from "@/assets/covers/cover-12.jpg";
+import cover13 from "@/assets/covers/cover-13.jpg";
+import cover14 from "@/assets/covers/cover-14.jpg";
+import cover15 from "@/assets/covers/cover-15.jpg";
+import cover16 from "@/assets/covers/cover-16.jpg";
+import cover17 from "@/assets/covers/cover-17.jpg";
+import cover18 from "@/assets/covers/cover-18.jpg";
+import cover19 from "@/assets/covers/cover-19.jpg";
+import cover20 from "@/assets/covers/cover-20.jpg";
+import cover21 from "@/assets/covers/cover-21.jpg";
+import cover22 from "@/assets/covers/cover-22.jpg";
+import cover23 from "@/assets/covers/cover-23.jpg";
+import cover24 from "@/assets/covers/cover-24.jpg";
+import cover25 from "@/assets/covers/cover-25.jpg";
+import cover26 from "@/assets/covers/cover-26.jpg";
+import cover27 from "@/assets/covers/cover-27.jpg";
+import cover28 from "@/assets/covers/cover-28.jpg";
+import cover29 from "@/assets/covers/cover-29.jpg";
+import cover30 from "@/assets/covers/cover-30.jpg";
+import cover31 from "@/assets/covers/cover-31.jpg";
+import cover32 from "@/assets/covers/cover-32.jpg";
+import cover33 from "@/assets/covers/cover-33.jpg";
+import cover34 from "@/assets/covers/cover-34.jpg";
+import cover35 from "@/assets/covers/cover-35.jpg";
+import cover36 from "@/assets/covers/cover-36.jpg";
+import cover37 from "@/assets/covers/cover-37.jpg";
+import cover38 from "@/assets/covers/cover-38.jpg";
+import cover39 from "@/assets/covers/cover-39.jpg";
+import cover40 from "@/assets/covers/cover-40.jpg";
+import cover41 from "@/assets/covers/cover-41.jpg";
+import cover42 from "@/assets/covers/cover-42.jpg";
+import cover43 from "@/assets/covers/cover-43.jpg";
+import cover44 from "@/assets/covers/cover-44.jpg";
+import cover45 from "@/assets/covers/cover-45.jpg";
+import cover46 from "@/assets/covers/cover-46.jpg";
+import cover47 from "@/assets/covers/cover-47.jpg";
+import cover48 from "@/assets/covers/cover-48.jpg";
+import cover49 from "@/assets/covers/cover-49.jpg";
+import cover50 from "@/assets/covers/cover-50.jpg";
+import cover51 from "@/assets/covers/cover-51.jpg";
+import cover52 from "@/assets/covers/cover-52.jpg";
+import cover53 from "@/assets/covers/cover-53.jpg";
+import cover54 from "@/assets/covers/cover-54.jpg";
+import cover55 from "@/assets/covers/cover-55.jpg";
+import cover56 from "@/assets/covers/cover-56.jpg";
+import cover57 from "@/assets/covers/cover-57.jpg";
+import cover58 from "@/assets/covers/cover-58.jpg";
+
 export interface LocalizedString {
   en: string;
   ar: string;
@@ -50,7 +109,7 @@ export const books: Book[] = [
     title: { en: "The Secret Garden", ar: "الحديقة السرية" },
     author: { en: "Frances Hodgson Burnett", ar: "فرانسيس هودجسون بيرنت" },
     genre: { en: "Fiction", ar: "روايات" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover1,
     description: {
       en: "A classic tale of a young girl who discovers a hidden garden and transforms both it and herself through the healing power of nature.",
       ar: "قصة كلاسيكية عن فتاة صغيرة تكتشف حديقة مخفية وتحوّلها وتحوّل نفسها من خلال قوة الطبيعة الشافية.",
@@ -66,7 +125,7 @@ export const books: Book[] = [
     title: { en: "Walden", ar: "والدن" },
     author: { en: "Henry David Thoreau", ar: "هنري ديفيد ثورو" },
     genre: { en: "Philosophy", ar: "فلسفة" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover2,
     description: {
       en: "A reflection upon simple living in natural surroundings, inspired by the author's two years spent in a cabin near Walden Pond.",
       ar: "تأمل في العيش البسيط في الطبيعة، مستوحى من عامين قضاهما المؤلف في كوخ بالقرب من بركة والدن.",
@@ -82,7 +141,7 @@ export const books: Book[] = [
     title: { en: "The Origin of Species", ar: "أصل الأنواع" },
     author: { en: "Charles Darwin", ar: "تشارلز داروين" },
     genre: { en: "Science", ar: "علوم" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover3,
     description: {
       en: "Darwin's groundbreaking work introducing the scientific theory of evolution by natural selection.",
       ar: "عمل داروين الرائد الذي قدّم النظرية العلمية للتطور عن طريق الانتقاء الطبيعي.",
@@ -98,7 +157,7 @@ export const books: Book[] = [
     title: { en: "The Lord of the Rings", ar: "سيد الخواتم" },
     author: { en: "J.R.R. Tolkien", ar: "ج.ر.ر. تولكين" },
     genre: { en: "Fantasy", ar: "خيال" },
-    cover: "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=300&h=400&fit=crop",
+    cover: cover4,
     description: {
       en: "An epic high-fantasy novel set in Middle-earth, following the quest to destroy the One Ring.",
       ar: "رواية ملحمية خيالية تدور أحداثها في الأرض الوسطى، تتبع رحلة تدمير الخاتم الواحد.",
@@ -114,7 +173,7 @@ export const books: Book[] = [
     title: { en: "A Brief History of Time", ar: "تاريخ موجز للزمن" },
     author: { en: "Stephen Hawking", ar: "ستيفن هوكينغ" },
     genre: { en: "Science", ar: "علوم" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover5,
     description: {
       en: "A landmark exploration of the universe, from the Big Bang to black holes, written for the general reader.",
       ar: "استكشاف بارز للكون، من الانفجار العظيم إلى الثقوب السوداء، مكتوب للقارئ العام.",
@@ -130,7 +189,7 @@ export const books: Book[] = [
     title: { en: "Sapiens", ar: "العاقل" },
     author: { en: "Yuval Noah Harari", ar: "يوفال نوح هراري" },
     genre: { en: "History", ar: "تاريخ" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover6,
     description: {
       en: "A sweeping narrative of humankind's creation and evolution, exploring how biology and history have defined us.",
       ar: "سرد شامل لخلق البشرية وتطورها، يستكشف كيف حددنا علم الأحياء والتاريخ.",
@@ -146,7 +205,7 @@ export const books: Book[] = [
     title: { en: "Pride and Prejudice", ar: "كبرياء وتحامل" },
     author: { en: "Jane Austen", ar: "جين أوستن" },
     genre: { en: "Fiction", ar: "روايات" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover7,
     description: {
       en: "A witty and romantic novel about the Bennet family and the proud Mr. Darcy in Regency-era England.",
       ar: "رواية ذكية ورومانسية عن عائلة بينيت والسيد داري المتكبر في إنجلترا عصر الوصاية.",
@@ -162,7 +221,7 @@ export const books: Book[] = [
     title: { en: "The Hobbit", ar: "الهوبيت" },
     author: { en: "J.R.R. Tolkien", ar: "ج.ر.ر. تولكين" },
     genre: { en: "Fantasy", ar: "خيال" },
-    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&h=400&fit=crop",
+    cover: cover8,
     description: {
       en: "The adventure of Bilbo Baggins, a hobbit who embarks on an unexpected journey with dwarves and a wizard.",
       ar: "مغامرة بيلبو باغينز، هوبيت ينطلق في رحلة غير متوقعة مع الأقزام وساحر.",
@@ -178,7 +237,7 @@ export const books: Book[] = [
     title: { en: "I Will Not Live in My Father's Robe", ar: "لن أعيش في جلباب أبي" },
     author: { en: "Ihsan Abdel Quddous", ar: "إحسان عبد القدوس" },
     genre: { en: "Poetry & Literature", ar: "شعر وأدب" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover9,
     description: {
       en: "A bold social novel about the rebellion of a young generation against traditional values in 1950s Egypt, raising questions of freedom, identity, and the conflict between generations.",
       ar: "رواية اجتماعية جريئة تتناول تمرد الجيل الشاب على القيم التقليدية في مصر الخمسينيات، وتطرح قضايا الحرية والهوية والصراع بين الأجيال.",
@@ -189,13 +248,12 @@ export const books: Book[] = [
     year: 1962,
     borrowCount: 0,
   },
-  // New books
   {
     id: "10",
     title: { ar: "الأيام", en: "Al-Ayyam (The Days)" },
     author: { ar: "طه حسين", en: "Taha Hussein" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover10,
     description: {
       ar: "سيرة ذاتية رائعة لطه حسين يروي فيها طفولته في صعيد مصر وكفاحه مع العمى، وسعيه نحو العلم والمعرفة في الأزهر والجامعة المصرية.",
       en: "A remarkable autobiography in which Taha Hussein recounts his childhood in Upper Egypt, his struggle with blindness, and his relentless pursuit of knowledge at Al-Azhar and the Egyptian University.",
@@ -211,7 +269,7 @@ export const books: Book[] = [
     title: { ar: "زقاق المدق", en: "Midaq Alley" },
     author: { ar: "نجيب محفوظ", en: "Naguib Mahfouz" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover11,
     description: {
       ar: "رواية تصور حياة سكان حارة شعبية في القاهرة القديمة إبان الحرب العالمية الثانية، وتكشف عن الصراعات الإنسانية بين الأحلام والواقع.",
       en: "A novel portraying the lives of residents in a popular Cairo alley during World War II, revealing human conflicts between dreams and reality.",
@@ -227,7 +285,7 @@ export const books: Book[] = [
     title: { ar: "الثلاثية - بين القصرين", en: "The Cairo Trilogy - Palace Walk" },
     author: { ar: "نجيب محفوظ", en: "Naguib Mahfouz" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover12,
     description: {
       ar: "الجزء الأول من الثلاثية الشهيرة لنجيب محفوظ، يتتبع حياة عائلة السيد أحمد عبد الجواد في القاهرة بين الحربين العالميتين، في صورة ملحمية لتحولات المجتمع المصري.",
       en: "The first part of Mahfouz's celebrated trilogy, following the Al-Jawad family in Cairo between the two World Wars in an epic portrayal of Egyptian social transformation.",
@@ -243,7 +301,7 @@ export const books: Book[] = [
     title: { ar: "موسم الهجرة إلى الشمال", en: "Season of Migration to the North" },
     author: { ar: "الطيب صالح", en: "Tayeb Saleh" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover13,
     description: {
       ar: "رواية تعدّ من أبرز الأعمال الأدبية العربية، تستكشف صراع الهوية والتصادم بين الشرق والغرب من خلال قصة شاب سوداني يعود من أوروبا إلى قريته.",
       en: "Considered one of the greatest Arabic literary works, this novel explores identity conflict and the clash between East and West through the story of a Sudanese man returning home from Europe.",
@@ -259,7 +317,7 @@ export const books: Book[] = [
     title: { ar: "رجال في الشمس", en: "Men in the Sun" },
     author: { ar: "غسان كنفاني", en: "Ghassan Kanafani" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover14,
     description: {
       ar: "رواية قصيرة مؤثرة تحكي مأساة ثلاثة لاجئين فلسطينيين يحاولون الوصول إلى الكويت بحثاً عن حياة أفضل، فتغدو رمزاً للمعاناة الفلسطينية.",
       en: "A powerful short novel telling the tragic story of three Palestinian refugees attempting to reach Kuwait in search of a better life, becoming a symbol of Palestinian suffering.",
@@ -275,7 +333,7 @@ export const books: Book[] = [
     title: { ar: "عصفور من الشرق", en: "A Sparrow from the East" },
     author: { ar: "توفيق الحكيم", en: "Tawfiq al-Hakim" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&h=400&fit=crop",
+    cover: cover15,
     description: {
       ar: "رواية تتناول تجربة شاب مصري يعيش في باريس ويواجه التناقض بين قيم الشرق وحضارة الغرب، في تأمل عميق للهوية والانتماء.",
       en: "A novel about a young Egyptian living in Paris who confronts the contradiction between Eastern values and Western civilization, in a deep meditation on identity and belonging.",
@@ -291,7 +349,7 @@ export const books: Book[] = [
     title: { ar: "الحرافيش", en: "The Harafish" },
     author: { ar: "نجيب محفوظ", en: "Naguib Mahfouz" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=300&h=400&fit=crop",
+    cover: cover16,
     description: {
       ar: "ملحمة روائية تمتد عبر أجيال من عائلة واحدة في حارة شعبية، تتناول صراع القوة والعدالة والقيم الإنسانية في سياق اجتماعي عميق.",
       en: "An epic novel spanning generations of a single family in a popular quarter, exploring power, justice, and human values in a rich social context.",
@@ -307,7 +365,7 @@ export const books: Book[] = [
     title: { ar: "دعاء الكروان", en: "The Call of the Curlew" },
     author: { ar: "طه حسين", en: "Taha Hussein" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover17,
     description: {
       ar: "رواية رومانسية تصف قصة فتاة ريفية تتعرض لظلم اجتماعي وتسعى للثأر، في نثر شعري يجسّد جماليات الريف المصري.",
       en: "A romantic novel depicting a village girl who endures social injustice and seeks revenge, told in poetic prose that captures the beauty of rural Egypt.",
@@ -323,7 +381,7 @@ export const books: Book[] = [
     title: { ar: "البؤساء", en: "Les Misérables" },
     author: { ar: "فيكتور هوجو", en: "Victor Hugo" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover18,
     description: {
       ar: "ملحمة إنسانية خالدة تدور في فرنسا القرن التاسع عشر، تتناول قضايا الظلم الاجتماعي والفقر والفداء من خلال شخصية جان فالجان.",
       en: "A timeless human epic set in 19th-century France, addressing social injustice, poverty, and redemption through the unforgettable character of Jean Valjean.",
@@ -339,7 +397,7 @@ export const books: Book[] = [
     title: { ar: "اللص والكلاب", en: "The Thief and the Dogs" },
     author: { ar: "نجيب محفوظ", en: "Naguib Mahfouz" },
     genre: { ar: "أدب كلاسيكي", en: "Classic Literature" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover19,
     description: {
       ar: "رواية نفسية مكثفة تحكي قصة سعيد مهران الخارج من السجن ليجد نفسه في مواجهة مجتمع خانه، في تصوير حاد للغضب والخيانة والضياع.",
       en: "An intense psychological novel telling the story of Said Mahran, released from prison to find himself betrayed by society, in a sharp portrayal of anger, betrayal, and loss.",
@@ -355,7 +413,7 @@ export const books: Book[] = [
     title: { ar: "رجل المستحيل", en: "The Impossible Man" },
     author: { ar: "نبيل فاروق", en: "Nabil Farouk" },
     genre: { ar: "غموض وإثارة", en: "Mystery & Thriller" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover20,
     description: {
       ar: "رواية تشويق وإثارة تتمحور حول عميل مصري يواجه مهمات مستحيلة ضد قوى الشر والتجسس، في أسلوب مشوق يجمع الحركة والمغامرة.",
       en: "A thriller centered on an Egyptian agent facing impossible missions against forces of evil and espionage, told in an exciting style combining action and adventure.",
@@ -371,7 +429,7 @@ export const books: Book[] = [
     title: { ar: "ملف المستقبل", en: "Future File" },
     author: { ar: "نبيل فاروق", en: "Nabil Farouk" },
     genre: { ar: "غموض وإثارة", en: "Mystery & Thriller" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover21,
     description: {
       ar: "رواية خيال علمي مثيرة تستعرض مؤامرة دولية تتعلق بتقنيات المستقبل، في أسلوب بوليسي مشوق يربط القارئ حتى السطر الأخير.",
       en: "An exciting science-fiction thriller featuring an international conspiracy tied to future technologies, in a gripping detective style that keeps the reader hooked until the last line.",
@@ -387,7 +445,7 @@ export const books: Book[] = [
     title: { ar: "الجريمة الكاملة", en: "The Perfect Crime" },
     author: { ar: "أحمد مراد", en: "Ahmed Mourad" },
     genre: { ar: "غموض وإثارة", en: "Mystery & Thriller" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover22,
     description: {
       ar: "رواية بوليسية مثيرة تدور حول جريمة غامضة يبدو أنها خُططت بإتقان شديد، يتابعها المحقق في رحلة مضنية لكشف الحقيقة.",
       en: "A gripping detective novel revolving around a mysterious crime that appears meticulously planned, as an investigator embarks on an exhausting journey to uncover the truth.",
@@ -403,7 +461,7 @@ export const books: Book[] = [
     title: { ar: "1919", en: "1919" },
     author: { ar: "أحمد مراد", en: "Ahmed Mourad" },
     genre: { ar: "غموض وإثارة", en: "Mystery & Thriller" },
-    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&h=400&fit=crop",
+    cover: cover23,
     description: {
       ar: "رواية تاريخية بوليسية تجري أحداثها في مصر عام 1919 إبان ثورة الاستقلال، تمزج بين التشويق البوليسي والحقبة التاريخية بإتقان نادر.",
       en: "A historical thriller set in Egypt during the 1919 revolution, masterfully blending detective suspense with a vivid historical period.",
@@ -419,7 +477,7 @@ export const books: Book[] = [
     title: { ar: "فيرتيجو", en: "Vertigo" },
     author: { ar: "أحمد مراد", en: "Ahmed Mourad" },
     genre: { ar: "غموض وإثارة", en: "Mystery & Thriller" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover24,
     description: {
       ar: "رواية إثارة نفسية مكثفة تتناول قصة شاب يجد نفسه في قلب مؤامرة معقدة تهدد حياته، في جو من الغموض والتشويق المتصاعد.",
       en: "An intense psychological thriller about a young man who finds himself at the center of a complex conspiracy threatening his life, in an atmosphere of mounting mystery and suspense.",
@@ -435,7 +493,7 @@ export const books: Book[] = [
     title: { ar: "هكذا تكلم زرادشت", en: "Thus Spoke Zarathustra" },
     author: { ar: "فريدريك نيتشه", en: "Friedrich Nietzsche" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover25,
     description: {
       ar: "العمل الفلسفي الأشهر لنيتشه، مكتوب على لسان النبي زرادشت، يطرح فيه مفاهيم الإنسان الأعلى وإرادة القوة وعودة الأبدي في أسلوب شعري لافت.",
       en: "Nietzsche's most celebrated philosophical work, written as the prophet Zarathustra's speeches, presenting concepts of the Übermensch, the will to power, and eternal recurrence in striking poetic prose.",
@@ -451,7 +509,7 @@ export const books: Book[] = [
     title: { ar: "مقدمة ابن خلدون", en: "The Muqaddimah" },
     author: { ar: "ابن خلدون", en: "Ibn Khaldun" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover26,
     description: {
       ar: "أحد أعظم الأعمال الفكرية في التاريخ، يضع فيه ابن خلدون أسس علم الاجتماع والتاريخ، مستعرضاً نظريته في العصبية ودورات قيام الحضارات وانهيارها.",
       en: "One of the greatest intellectual works in history, in which Ibn Khaldun lays the foundations of sociology and historiography, presenting his theory of social cohesion and the cycles of civilizational rise and fall.",
@@ -467,7 +525,7 @@ export const books: Book[] = [
     title: { ar: "في الشعر الجاهلي", en: "On Pre-Islamic Poetry" },
     author: { ar: "طه حسين", en: "Taha Hussein" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover27,
     description: {
       ar: "دراسة نقدية جريئة لطه حسين يشكّك فيها بأصالة كثير من الشعر الجاهلي، مما أثار جدلاً واسعاً وأسهم في تجديد المنهج النقدي الأدبي العربي.",
       en: "A bold critical study in which Taha Hussein questions the authenticity of much pre-Islamic poetry, sparking wide controversy and contributing to the renewal of Arabic literary criticism.",
@@ -483,7 +541,7 @@ export const books: Book[] = [
     title: { ar: "أوراق الورد", en: "Rose Leaves" },
     author: { ar: "مصطفى صادق الرافعي", en: "Mustafa Sadiq al-Rafi'i" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover28,
     description: {
       ar: "مجموعة رسائل أدبية وجدانية كتبها الرافعي إلى محبوبته، تجمع بين عذوبة الأسلوب العربي الرفيع والتأمل الفلسفي في الحب والجمال والحياة.",
       en: "A collection of literary and emotional letters written by al-Rafi'i to his beloved, combining the elegance of classical Arabic style with philosophical reflections on love, beauty, and life.",
@@ -499,7 +557,7 @@ export const books: Book[] = [
     title: { ar: "تحت راية القرآن", en: "Under the Banner of the Quran" },
     author: { ar: "مصطفى صادق الرافعي", en: "Mustafa Sadiq al-Rafi'i" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover29,
     description: {
       ar: "كتاب فكري يدافع فيه الرافعي عن اللغة العربية والقرآن الكريم في مواجهة الدعوات التغريبية، ويُجلي إعجاز القرآن اللغوي والبياني.",
       en: "An intellectual work in which al-Rafi'i defends the Arabic language and the Quran against Westernization calls, illuminating the Quran's linguistic and rhetorical miraculousness.",
@@ -515,7 +573,7 @@ export const books: Book[] = [
     title: { ar: "الظاهرة القرآنية", en: "The Quranic Phenomenon" },
     author: { ar: "مالك بن نبي", en: "Malek Bennabi" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&h=400&fit=crop",
+    cover: cover30,
     description: {
       ar: "دراسة فكرية عميقة يتناول فيها مالك بن نبي إعجاز القرآن الكريم من منظور علمي وحضاري، موجهاً خطابه للقارئ المعاصر المشكّك والمتفكّر.",
       en: "A profound intellectual study in which Malek Bennabi addresses the miraculous nature of the Quran from a scientific and civilizational perspective, directed at the contemporary skeptical thinker.",
@@ -531,7 +589,7 @@ export const books: Book[] = [
     title: { ar: "شروط النهضة", en: "The Conditions of Renaissance" },
     author: { ar: "مالك بن نبي", en: "Malek Bennabi" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=300&h=400&fit=crop",
+    cover: cover31,
     description: {
       ar: "كتاب حضاري يحلل فيه مالك بن نبي أسباب تخلف العالم الإسلامي ويضع شروط نهضته، مقدماً رؤية ثاقبة للإصلاح الحضاري والاجتماعي.",
       en: "A civilizational work analyzing the causes of the Islamic world's decline and outlining the conditions for its renaissance, offering a penetrating vision for civilizational and social reform.",
@@ -547,7 +605,7 @@ export const books: Book[] = [
     title: { ar: "حي بن يقظان", en: "Hayy ibn Yaqzan" },
     author: { ar: "ابن طفيل", en: "Ibn Tufail" },
     genre: { ar: "فلسفة وفكر", en: "Philosophy & Thought" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover32,
     description: {
       ar: "رواية فلسفية عربية كلاسيكية تحكي قصة طفل نشأ وحيداً في جزيرة منعزلة ووصل بعقله المجرد إلى الحقائق الكونية والمعرفة الروحية.",
       en: "A classic Arabic philosophical novel telling the story of a child raised alone on a deserted island who, through pure reason, arrives at universal truths and spiritual knowledge.",
@@ -563,7 +621,7 @@ export const books: Book[] = [
     title: { ar: "قواعد العشق الأربعون", en: "The Forty Rules of Love" },
     author: { ar: "إليف شافاق", en: "Elif Shafak" },
     genre: { ar: "رومانسية ودراما", en: "Romance & Drama" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover33,
     description: {
       ar: "رواية تتشابك فيها قصتان؛ الأولى في القرن الثالث عشر بين جلال الدين الرومي والدرويش شمس التبريزي، والثانية لامرأة معاصرة تكتشف قواعد العشق الصوفي.",
       en: "A novel interweaving two stories: one in the 13th century between Rumi and the dervish Shams of Tabriz, and another of a modern woman discovering the rules of Sufi love.",
@@ -579,7 +637,7 @@ export const books: Book[] = [
     title: { ar: "أحببتك أكثر مما ينبغي", en: "I Loved You More Than I Should" },
     author: { ar: "أثير عبد الله النشمي", en: "Atheer Abdullah Al-Nashmi" },
     genre: { ar: "رومانسية ودراما", en: "Romance & Drama" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover34,
     description: {
       ar: "رواية عاطفية خليجية تتناول قصة حب معقدة تعصف بها الظروف والمجتمع، في سرد رومانسي يلامس المشاعر ويعكس تفاصيل الحياة الخليجية.",
       en: "A Gulf romantic novel about a complex love story challenged by circumstances and society, told in an emotional narrative that reflects the details of Gulf life.",
@@ -595,7 +653,7 @@ export const books: Book[] = [
     title: { ar: "أرني أنظر إليك", en: "Let Me Look at You" },
     author: { ar: "أثير عبد الله النشمي", en: "Atheer Abdullah Al-Nashmi" },
     genre: { ar: "رومانسية ودراما", en: "Romance & Drama" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover35,
     description: {
       ar: "رواية رومانسية تستكشف عالم العلاقات الإنسانية والتعلق العاطفي، بأسلوب سردي حساس يجمع بين الشاعرية والواقعية في البيئة الخليجية.",
       en: "A romantic novel exploring the world of human relationships and emotional attachment, told in a sensitive narrative style blending poetry and realism within a Gulf setting.",
@@ -611,7 +669,7 @@ export const books: Book[] = [
     title: { ar: "في قلبي أنثى عبرية", en: "A Hebrew Woman in My Heart" },
     author: { ar: "خولة حمدي", en: "Khawla Hamdi" },
     genre: { ar: "رومانسية ودراما", en: "Romance & Drama" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover36,
     description: {
       ar: "رواية جريئة تحكي قصة حب بين فتاة عربية مسلمة وشاب يهودي، تطرح أسئلة عميقة حول الهوية والانتماء والحب في ظل الصراع العربي الإسرائيلي.",
       en: "A bold novel telling the story of love between an Arab Muslim girl and a Jewish young man, raising deep questions about identity, belonging, and love amid the Arab-Israeli conflict.",
@@ -627,7 +685,7 @@ export const books: Book[] = [
     title: { ar: "غرفة ليوناردو", en: "Leonardo's Room" },
     author: { ar: "حنان لاشين", en: "Hanan Lashin" },
     genre: { ar: "رومانسية ودراما", en: "Romance & Drama" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover37,
     description: {
       ar: "رواية رومانسية درامية تدور في أجواء فنية وعاطفية، تقص قصة امرأة تكتشف أسراراً مدفونة داخل غرفة فنان، مما يغيّر مسار حياتها كلياً.",
       en: "A romantic drama set in an artistic and emotional atmosphere, telling the story of a woman who discovers buried secrets inside an artist's room, completely changing the course of her life.",
@@ -643,7 +701,7 @@ export const books: Book[] = [
     title: { ar: "لا تحزن", en: "Don't Be Sad" },
     author: { ar: "عائض القرني", en: "Aaidh al-Qarni" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&h=400&fit=crop",
+    cover: cover38,
     description: {
       ar: "كتاب إسلامي تحفيزي يعالج الحزن والاكتئاب وضغوط الحياة بأسلوب روحي ومعرفي، مستعيناً بآيات القرآن والحكم والقصص لإعادة بناء الثقة بالنفس.",
       en: "An Islamic motivational book addressing sadness, depression, and life pressures through a spiritual and intellectual approach, drawing on Quranic verses, wisdom, and stories to rebuild self-confidence.",
@@ -659,7 +717,7 @@ export const books: Book[] = [
     title: { ar: "استمتع بحياتك", en: "Enjoy Your Life" },
     author: { ar: "محمد العريفي", en: "Muhammad al-Arefe" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover39,
     description: {
       ar: "كتاب يستلهم من سيرة النبي صلى الله عليه وسلم وأساليبه في التواصل والتعامل مع الناس ليقدم دروساً عملية في فن الحياة والتأثير الإيجابي.",
       en: "A book drawing on the Prophet's biography and communication styles to offer practical lessons in the art of living and positive influence.",
@@ -675,7 +733,7 @@ export const books: Book[] = [
     title: { ar: "صناعة الثقافة", en: "Creating Culture" },
     author: { ar: "عبد الكريم بكار", en: "Abdul Karim Bakkar" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover40,
     description: {
       ar: "كتاب فكري تربوي يشرح كيفية بناء الثقافة الشخصية وتطويرها، ويتناول أسس تشكيل العقل الناضج والشخصية المتكاملة في العصر الحديث.",
       en: "An intellectual and educational book explaining how to build and develop personal culture, addressing the foundations of forming a mature mind and well-rounded personality in the modern age.",
@@ -691,7 +749,7 @@ export const books: Book[] = [
     title: { ar: "قوة الآن", en: "The Power of Now" },
     author: { ar: "إيكهارت تول", en: "Eckhart Tolle" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover41,
     description: {
       ar: "كتاب روحي تحويلي يدعو إلى العيش في اللحظة الراهنة والتحرر من ثقل الماضي وقلق المستقبل، مقدماً أدوات عملية لتحقيق السلام الداخلي.",
       en: "A transformative spiritual book calling for living in the present moment and freeing oneself from the weight of the past and anxiety about the future, offering practical tools for inner peace.",
@@ -707,7 +765,7 @@ export const books: Book[] = [
     title: { ar: "العادات السبع للناس الأكثر فعالية", en: "The 7 Habits of Highly Effective People" },
     author: { ar: "ستيفن كوفي", en: "Stephen Covey" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover42,
     description: {
       ar: "من أكثر كتب تطوير الذات مبيعاً في العالم، يقدم سبع عادات أساسية لبناء شخصية فعّالة وتحقيق النجاح على الصعيدين الشخصي والمهني.",
       en: "One of the world's best-selling self-development books, presenting seven core habits for building an effective character and achieving success both personally and professionally.",
@@ -723,7 +781,7 @@ export const books: Book[] = [
     title: { ar: "كيف تكسب الأصدقاء وتؤثر في الناس", en: "How to Win Friends and Influence People" },
     author: { ar: "ديل كارنيجي", en: "Dale Carnegie" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover43,
     description: {
       ar: "كتاب خالد في مجال المهارات الاجتماعية، يقدم مبادئ عملية لبناء علاقات إنسانية ناجحة والتأثير الإيجابي في الآخرين في الحياة اليومية والعمل.",
       en: "A timeless classic in social skills, offering practical principles for building successful human relationships and positively influencing others in daily life and work.",
@@ -739,7 +797,7 @@ export const books: Book[] = [
     title: { ar: "فن اللامبالاة", en: "The Subtle Art of Not Giving a F*ck" },
     author: { ar: "مارك مانسون", en: "Mark Manson" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover44,
     description: {
       ar: "كتاب تطوير ذات غير تقليدي يتحدى ثقافة الإيجابية الزائفة، ويدعو إلى التركيز على ما يستحق الاهتمام الحقيقي وقبول القيود البشرية بصدق.",
       en: "An unconventional self-development book that challenges toxic positivity culture, urging the reader to focus only on what truly matters and honestly accept human limitations.",
@@ -755,7 +813,7 @@ export const books: Book[] = [
     title: { ar: "السر", en: "The Secret" },
     author: { ar: "روندا بايرن", en: "Rhonda Byrne" },
     genre: { ar: "تطوير الذات", en: "Self-Development" },
-    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&h=400&fit=crop",
+    cover: cover45,
     description: {
       ar: "كتاب يكشف عن قانون الجذب ويشرح كيف يمكن للأفكار الإيجابية أن تجلب النجاح والسعادة والصحة، مستنداً إلى شهادات شخصيات ناجحة عبر التاريخ.",
       en: "A book revealing the law of attraction and explaining how positive thoughts can bring success, happiness, and health, drawing on testimonials from successful figures throughout history.",
@@ -771,7 +829,7 @@ export const books: Book[] = [
     title: { ar: "البداية والنهاية", en: "The Beginning and the End" },
     author: { ar: "ابن كثير", en: "Ibn Kathir" },
     genre: { ar: "تاريخ وسيرة", en: "History & Biography" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover46,
     description: {
       ar: "موسوعة إسلامية شاملة تبدأ من بدء الخلق وقصص الأنبياء وتمر بالتاريخ الإسلامي حتى عصر المؤلف، وتختتم برؤى عن يوم القيامة وما بعده.",
       en: "A comprehensive Islamic encyclopedia beginning with creation and the stories of prophets, tracing Islamic history through the author's era, and concluding with visions of Judgment Day and beyond.",
@@ -787,7 +845,7 @@ export const books: Book[] = [
     title: { ar: "الرحيق المختوم", en: "The Sealed Nectar" },
     author: { ar: "صفي الرحمن المباركفوري", en: "Safiur Rahman Mubarakpuri" },
     genre: { ar: "تاريخ وسيرة", en: "History & Biography" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover47,
     description: {
       ar: "سيرة نبوية حائزة على جائزة عالمية، تروي حياة النبي محمد صلى الله عليه وسلم بأسلوب علمي وسلس، من المولد حتى الوفاة.",
       en: "An award-winning biography of Prophet Muhammad, narrating his life from birth to death in a scholarly yet accessible style.",
@@ -803,7 +861,7 @@ export const books: Book[] = [
     title: { ar: "السيرة النبوية", en: "The Prophet's Biography" },
     author: { ar: "ابن هشام", en: "Ibn Hisham" },
     genre: { ar: "تاريخ وسيرة", en: "History & Biography" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover48,
     description: {
       ar: "المرجع الأساسي في السيرة النبوية، يرصد فيه ابن هشام حياة النبي محمد صلى الله عليه وسلم بالتفصيل مستنداً إلى مرويات ابن إسحاق وغيره من المصادر الموثوقة.",
       en: "The primary reference in prophetic biography, in which Ibn Hisham meticulously documents the life of Prophet Muhammad, drawing on Ibn Ishaq's narrations and other reliable sources.",
@@ -819,7 +877,7 @@ export const books: Book[] = [
     title: { ar: "قصة الحضارة", en: "The Story of Civilization" },
     author: { ar: "ول ديورانت", en: "Will Durant" },
     genre: { ar: "تاريخ وسيرة", en: "History & Biography" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover49,
     description: {
       ar: "موسوعة تاريخية ضخمة تتناول تطور الحضارة الإنسانية من فجر التاريخ حتى القرن التاسع عشر، مكتوبة بأسلوب أدبي شيق يجعل التاريخ في متناول الجميع.",
       en: "A monumental historical encyclopedia tracing the evolution of human civilization from the dawn of history to the 19th century, written in an engaging literary style that makes history accessible to all.",
@@ -835,7 +893,7 @@ export const books: Book[] = [
     title: { ar: "الكامل في التاريخ", en: "The Complete History" },
     author: { ar: "ابن الأثير", en: "Ibn al-Athir" },
     genre: { ar: "تاريخ وسيرة", en: "History & Biography" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover50,
     description: {
       ar: "مرجع تاريخي إسلامي كبير يستعرض أحداث التاريخ من بدء الخلق حتى القرن السابع الهجري، يُعدّ من أهم المصادر في التأريخ الإسلامي الكلاسيكي.",
       en: "A major Islamic historical reference covering events from creation to the 7th century AH, considered one of the most important sources in classical Islamic historiography.",
@@ -851,7 +909,7 @@ export const books: Book[] = [
     title: { ar: "تاريخ الأمم والملوك", en: "History of the Nations and Kings" },
     author: { ar: "الطبري", en: "Al-Tabari" },
     genre: { ar: "تاريخ وسيرة", en: "History & Biography" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover51,
     description: {
       ar: "موسوعة تاريخية عملاقة للمؤرخ الإسلامي الكبير الطبري، تغطي تاريخ الأمم والأنبياء والخلفاء، وتُعدّ من أوسع المصادر التاريخية الإسلامية وأكثرها توثيقاً.",
       en: "A monumental historical encyclopedia by the great Islamic historian Al-Tabari, covering the history of nations, prophets, and caliphs, considered one of the broadest and most documented Islamic historical sources.",
@@ -867,7 +925,7 @@ export const books: Book[] = [
     title: { ar: "عبقرية محمد", en: "The Genius of Muhammad" },
     author: { ar: "عباس محمود العقاد", en: "Abbas Mahmoud al-Aqqad" },
     genre: { ar: "تاريخ وسيرة", en: "History & Biography" },
-    cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?w=300&h=400&fit=crop",
+    cover: cover52,
     description: {
       ar: "دراسة أدبية وفكرية تستكشف شخصية النبي محمد صلى الله عليه وسلم من زاوية عبقريته الإنسانية والقيادية والروحية، بقلم العقاد الأديب الكبير.",
       en: "A literary and intellectual study exploring the Prophet Muhammad's personality through the lens of his human, leadership, and spiritual genius, penned by the great writer al-Aqqad.",
@@ -883,7 +941,7 @@ export const books: Book[] = [
     title: { ar: "رحلة عقل", en: "Journey of a Mind" },
     author: { ar: "عمرو شريف", en: "Amr Sherif" },
     genre: { ar: "علوم ومعرفة", en: "Science & Knowledge" },
-    cover: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop",
+    cover: cover53,
     description: {
       ar: "كتاب يقود القارئ في رحلة فكرية استكشافية تجمع بين العلم والفلسفة والإيمان، بحثاً عن الحقيقة من خلال التساؤل والتفكير النقدي.",
       en: "A book guiding the reader on an exploratory intellectual journey combining science, philosophy, and faith in search of truth through questioning and critical thinking.",
@@ -899,7 +957,7 @@ export const books: Book[] = [
     title: { ar: "كون من لا شيء", en: "A Universe from Nothing" },
     author: { ar: "لورانس كراوس", en: "Lawrence Krauss" },
     genre: { ar: "علوم ومعرفة", en: "Science & Knowledge" },
-    cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=400&fit=crop",
+    cover: cover54,
     description: {
       ar: "كتاب علمي شيق يشرح نظريات الفيزياء الحديثة حول نشأة الكون من العدم، ويستكشف أسئلة الوجود والكون بأسلوب ميسّر للقارئ غير المتخصص.",
       en: "A fascinating science book explaining modern physics theories about how the universe emerged from nothing, exploring questions of existence and the cosmos in an accessible style for non-specialists.",
@@ -915,7 +973,7 @@ export const books: Book[] = [
     title: { ar: "الكون الأنيق", en: "The Elegant Universe" },
     author: { ar: "برايان جرين", en: "Brian Greene" },
     genre: { ar: "علوم ومعرفة", en: "Science & Knowledge" },
-    cover: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=300&h=400&fit=crop",
+    cover: cover55,
     description: {
       ar: "كتاب علمي رفيع يشرح نظرية الأوتار الفائقة ومساعيها لتوحيد قوانين الطبيعة، بأسلوب تصويري يجعل الفيزياء النظرية الصعبة في متناول الجميع.",
       en: "A distinguished science book explaining superstring theory and its quest to unify the laws of nature, using vivid imagery to make difficult theoretical physics accessible to everyone.",
@@ -931,7 +989,7 @@ export const books: Book[] = [
     title: { ar: "موجز تاريخ الزمن", en: "A Brief History of Time (Arabic)" },
     author: { ar: "ستيفن هوكينج", en: "Stephen Hawking" },
     genre: { ar: "علوم ومعرفة", en: "Science & Knowledge" },
-    cover: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=300&h=400&fit=crop",
+    cover: cover56,
     description: {
       ar: "من أشهر الكتب العلمية في التاريخ، يأخذنا هوكينج في جولة حول أصل الكون والثقوب السوداء والزمن والنسبية بلغة بسيطة وعميقة في آن واحد.",
       en: "One of the most famous science books in history, in which Hawking takes us on a tour of the origins of the universe, black holes, time, and relativity in language that is both simple and profound.",
@@ -947,7 +1005,7 @@ export const books: Book[] = [
     title: { ar: "ديوان المتنبي", en: "Diwan of Al-Mutanabbi" },
     author: { ar: "أبو الطيب المتنبي", en: "Al-Mutanabbi" },
     genre: { ar: "شعر وأدب", en: "Poetry & Literature" },
-    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300&h=400&fit=crop",
+    cover: cover57,
     description: {
       ar: "ديوان شعري خالد لأعظم شعراء العربية، يضم قصائد تتنوع بين المدح والهجاء والحكمة والوصف، لا تزال تُحفظ وتُستشهد بها حتى اليوم.",
       en: "A timeless poetry collection by the greatest Arab poet, containing odes ranging from panegyric and satire to wisdom and description, still memorized and quoted to this day.",
@@ -963,7 +1021,7 @@ export const books: Book[] = [
     title: { ar: "ديوان نزار قباني", en: "Diwan of Nizar Qabbani" },
     author: { ar: "نزار قباني", en: "Nizar Qabbani" },
     genre: { ar: "شعر وأدب", en: "Poetry & Literature" },
-    cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300&h=400&fit=crop",
+    cover: cover58,
     description: {
       ar: "مجموعة شعرية تضم روائع نزار قباني في الحب والمرأة والسياسة والقضايا العربية، بلغة عصرية جريئة جعلته الشاعر الأكثر شعبية في العالم العربي الحديث.",
       en: "A poetry collection featuring Nizar Qabbani's masterpieces on love, women, politics, and Arab causes, in a bold modern language that made him the most popular poet in the modern Arab world.",
