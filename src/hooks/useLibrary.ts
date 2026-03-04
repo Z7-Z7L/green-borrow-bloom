@@ -4,58 +4,121 @@ import { books as initialBooks } from "@/data/books";
 import { format } from "date-fns";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
+
+export interface BorrowingRecord {
+  id: string;
+  bookId: string;
+  startDate: Date;
+  endDate: Date;
+  returned: boolean;
+  wasLate: boolean;
+}
 
 export function useLibrary() {
   const [books, setBooks] = useState<Book[]>(initialBooks);
   const [bookings, setBookings] = useState<Booking[]>([]);
+  const [history, setHistory] = useState<BorrowingRecord[]>([]);
+  const [holdUntil, setHoldUntil] = useState<Date | null>(null);
+  const [lateCount, setLateCount] = useState(0);
   const { user } = useAuth();
 
-  // Load user's active borrowings from DB
+  // Load user's borrowings + profile from DB
   useEffect(() => {
     if (!user) {
       setBookings([]);
+      setHistory([]);
       setBooks(initialBooks.map((b) => ({ ...b, available: true })));
+      setHoldUntil(null);
+      setLateCount(0);
       return;
     }
 
-    const loadBorrowings = async () => {
-      const { data, error } = await supabase
+    const loadData = async () => {
+      // Load all borrowings (active + returned)
+      const { data: borrowData, error } = await supabase
         .from("borrowings")
         .select("*")
-        .eq("returned", false);
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
 
       if (error) {
         console.error("Failed to load borrowings:", error);
         return;
       }
 
-      if (data) {
-        const loadedBookings: Booking[] = data.map((b: any) => ({
-          id: b.id,
-          bookId: b.book_id,
-          borrowerName: "",
-          borrowerEmail: "",
-          startDate: new Date(b.start_date),
-          endDate: new Date(b.end_date),
-        }));
-        setBookings(loadedBookings);
+      if (borrowData) {
+        const active: Booking[] = [];
+        const all: BorrowingRecord[] = [];
 
-        const borrowedIds = new Set(data.map((b: any) => b.book_id));
+        for (const b of borrowData) {
+          const endDate = new Date(b.end_date);
+          const wasLate = b.returned && new Date(b.end_date) < new Date(b.created_at) ? false : false;
+
+          all.push({
+            id: b.id,
+            bookId: b.book_id,
+            startDate: new Date(b.start_date),
+            endDate,
+            returned: b.returned,
+            wasLate: b.returned && endDate < new Date(), // approximate
+          });
+
+          if (!b.returned) {
+            active.push({
+              id: b.id,
+              bookId: b.book_id,
+              borrowerName: "",
+              borrowerEmail: "",
+              startDate: new Date(b.start_date),
+              endDate,
+            });
+          }
+        }
+
+        setBookings(active);
+        setHistory(all);
+
+        // Mark books unavailable based on ALL active borrowings (not just this user)
+        const { data: allActive } = await supabase
+          .from("borrowings")
+          .select("book_id")
+          .eq("returned", false);
+
+        const borrowedIds = new Set((allActive || []).map((b: any) => b.book_id));
         setBooks(initialBooks.map((b) => ({
           ...b,
           available: !borrowedIds.has(b.id),
         })));
       }
+
+      // Load profile for hold info
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("late_count, hold_until")
+        .eq("user_id", user.id)
+        .single();
+
+      if (profile) {
+        setLateCount(profile.late_count || 0);
+        setHoldUntil(profile.hold_until ? new Date(profile.hold_until) : null);
+      }
     };
 
-    loadBorrowings();
+    loadData();
   }, [user]);
+
+  const isOnHold = holdUntil ? new Date() < holdUntil : false;
 
   const borrowBook = useCallback(
     async (bookId: string, startDate: Date, endDate: Date) => {
       if (!user) return null;
 
-      // Insert into DB
+      if (isOnHold) {
+        toast.error(`Your account is on hold until ${format(holdUntil!, "MMM d, yyyy h:mm a")}. You cannot borrow books.`);
+        return null;
+      }
+
       const { data, error } = await supabase
         .from("borrowings")
         .insert({
@@ -82,11 +145,14 @@ export function useLibrary() {
       };
 
       setBookings((prev) => [...prev, booking]);
+      setHistory((prev) => [{
+        id: data.id, bookId, startDate, endDate, returned: false, wasLate: false,
+      }, ...prev]);
       setBooks((prev) =>
         prev.map((b) => (b.id === bookId ? { ...b, available: false } : b))
       );
 
-      // Send notification (fire and forget)
+      // Send notification
       const book = initialBooks.find((b) => b.id === bookId);
       if (book) {
         const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -111,7 +177,7 @@ export function useLibrary() {
 
       return booking;
     },
-    [user]
+    [user, isOnHold, holdUntil]
   );
 
   const returnBook = useCallback(
@@ -119,20 +185,48 @@ export function useLibrary() {
       if (!user) return;
 
       const booking = bookings.find((b) => b.bookId === bookId);
-      if (booking) {
+      if (!booking) return;
+
+      const isLate = new Date() > booking.endDate;
+
+      // Update borrowing as returned
+      await supabase
+        .from("borrowings")
+        .update({ returned: true })
+        .eq("id", booking.id);
+
+      if (isLate) {
+        const newLateCount = lateCount + 1;
+        const updateData: any = { late_count: newLateCount };
+
+        if (newLateCount > 1) {
+          // Apply 1-day hold
+          const holdDate = new Date();
+          holdDate.setDate(holdDate.getDate() + 1);
+          updateData.hold_until = holdDate.toISOString();
+          setHoldUntil(holdDate);
+          toast.error(`⚠️ This is your ${newLateCount}${newLateCount === 2 ? 'nd' : newLateCount === 3 ? 'rd' : 'th'} late return. Your account is on hold for 1 day.`);
+        } else {
+          toast.warning("⚠️ Warning: This book was returned late. Repeated late returns will result in account holds.");
+        }
+
+        setLateCount(newLateCount);
         await supabase
-          .from("borrowings")
-          .update({ returned: true })
-          .eq("id", booking.id);
+          .from("profiles")
+          .update(updateData)
+          .eq("user_id", user.id);
       }
 
       setBookings((prev) => prev.filter((b) => b.bookId !== bookId));
+      setHistory((prev) => prev.map((h) =>
+        h.id === booking.id ? { ...h, returned: true, wasLate: isLate } : h
+      ));
       setBooks((prev) =>
         prev.map((b) => (b.id === bookId ? { ...b, available: true } : b))
       );
     },
-    [user, bookings]
+    [user, bookings, lateCount]
   );
 
-  return { books, bookings, borrowBook, returnBook };
+  return { books, bookings, history, borrowBook, returnBook, isOnHold, holdUntil, lateCount };
 }
