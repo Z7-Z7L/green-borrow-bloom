@@ -132,6 +132,14 @@ const translations = {
     checkEmail: "تحقق من بريدك الإلكتروني لتأكيد حسابك!",
     signOut: "تسجيل الخروج",
     loginToBorrow: "سجّل الدخول للاستعارة",
+    currentBorrowings: "الاستعارات الحالية",
+    borrowingHistory: "سجل الاستعارات",
+    returned: "تم الإرجاع",
+    lateReturn: "متأخر",
+    noHistory: "لا يوجد سجل استعارات بعد.",
+    accountOnHold: "الحساب معلّق",
+    holdUntilMsg: "لا يمكنك استعارة الكتب حتى",
+    lateWarning: "لديك {count} إرجاع(ات) متأخرة. أكثر من إرجاع متأخر سيؤدي إلى تعليق الحساب ليوم واحد.",
   },
 } as const;
 

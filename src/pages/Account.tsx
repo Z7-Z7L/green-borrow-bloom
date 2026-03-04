@@ -68,9 +68,9 @@ export default function AccountPage({ books, bookings, history, onReturn, isOnHo
 
         {/* Late warnings count */}
         {lateCount > 0 && !isOnHold && (
-          <div className="mb-6 flex items-center gap-3 rounded-lg border border-orange-400/30 bg-orange-50 dark:bg-orange-950/20 p-4">
-            <AlertTriangle className="h-5 w-5 shrink-0 text-orange-500" />
-            <p className="text-sm text-orange-700 dark:text-orange-400">
+          <div className="mb-6 flex items-center gap-3 rounded-lg border border-accent/30 bg-accent/10 p-4">
+            <AlertTriangle className="h-5 w-5 shrink-0 text-accent-foreground" />
+            <p className="text-sm text-accent-foreground">
               {t.lateWarning.replace("{count}", String(lateCount))}
             </p>
           </div>

@@ -21,7 +21,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function AppRoutes() {
-  const { books, bookings, borrowBook, returnBook } = useLibrary();
+  const { books, bookings, history, borrowBook, returnBook, isOnHold, holdUntil, lateCount } = useLibrary();
   const { user } = useAuth();
 
   return (
@@ -32,7 +32,7 @@ function AppRoutes() {
         path="/account"
         element={
           <ProtectedRoute>
-            <AccountPage books={books} bookings={bookings} onReturn={returnBook} />
+            <AccountPage books={books} bookings={bookings} history={history} onReturn={returnBook} isOnHold={isOnHold} holdUntil={holdUntil} lateCount={lateCount} />
           </ProtectedRoute>
         }
       />
