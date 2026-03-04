@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,13 +8,24 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { getMostBorrowedBooks } from "@/data/mostBorrowed";
+import { getMostBorrowedBooks, MostBorrowedBook } from "@/data/mostBorrowed";
 import { useLang } from "@/hooks/useLang";
 
 export default function MostBorrowedDialog() {
   const [open, setOpen] = useState(false);
+  const [data, setData] = useState<MostBorrowedBook[]>([]);
+  const [loading, setLoading] = useState(false);
   const { t, lang } = useLang();
-  const data = getMostBorrowedBooks();
+
+  useEffect(() => {
+    if (open) {
+      setLoading(true);
+      getMostBorrowedBooks().then((result) => {
+        setData(result);
+        setLoading(false);
+      });
+    }
+  }, [open]);
 
   return (
     <>
@@ -34,7 +45,9 @@ export default function MostBorrowedDialog() {
             <DialogTitle className="font-serif text-2xl">{t.mostBorrowedTitle}</DialogTitle>
             <DialogDescription>{t.mostBorrowedDesc}</DialogDescription>
           </DialogHeader>
-          {data.length > 0 ? (
+          {loading ? (
+            <p className="py-8 text-center text-muted-foreground">Loading...</p>
+          ) : data.length > 0 ? (
             <ol className="space-y-3">
               {data.map((item, i) => (
                 <li
