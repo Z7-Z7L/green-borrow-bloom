@@ -9,34 +9,26 @@ export interface MostBorrowedBook {
 }
 
 /**
- * Fetches most borrowed books from the database by counting borrowings per book_id.
+ * Fetches most borrowed books using a secure database function
+ * that aggregates across all users.
  */
 export async function getMostBorrowedBooks(): Promise<MostBorrowedBook[]> {
-  const { data, error } = await supabase
-    .from("borrowings")
-    .select("book_id");
+  const { data, error } = await supabase.rpc("get_most_borrowed_books", {
+    limit_count: 5,
+  });
 
   if (error || !data) {
-    console.error("Failed to fetch borrow counts:", error);
+    console.error("Failed to fetch most borrowed books:", error);
     return [];
   }
 
-  // Count borrowings per book
-  const counts: Record<string, number> = {};
-  for (const row of data) {
-    counts[row.book_id] = (counts[row.book_id] || 0) + 1;
-  }
-
-  return Object.entries(counts)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 5)
-    .map(([bookId, count]) => {
-      const book = books.find((b) => b.id === bookId);
-      return {
-        bookId,
-        title: book?.title || { en: "Unknown", ar: "غير معروف" },
-        author: book?.author || { en: "Unknown", ar: "غير معروف" },
-        borrowCount: count,
-      };
-    });
+  return (data as { book_id: string; borrow_count: number }[]).map((row) => {
+    const book = books.find((b) => b.id === row.book_id);
+    return {
+      bookId: row.book_id,
+      title: book?.title || { en: "Unknown", ar: "غير معروف" },
+      author: book?.author || { en: "Unknown", ar: "غير معروف" },
+      borrowCount: row.borrow_count,
+    };
+  });
 }
