@@ -79,7 +79,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_most_borrowed_books: {
+        Args: { limit_count?: number }
+        Returns: {
+          book_id: string
+          borrow_count: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
