@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import CatalogSection from "@/components/CatalogSection";
 import BookDialog from "@/components/BookDialog";
 import Footer from "@/components/Footer";
+import BookFinderFab from "@/components/BookFinderFab";
 
 interface IndexProps {
   books: Book[];
