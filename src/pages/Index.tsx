@@ -30,6 +30,7 @@ const Index = ({ books, bookings, borrowBook }: IndexProps) => {
         bookings={bookings}
         onSelectSuggested={setSelectedBook}
       />
+      <BookFinderFab onSelectBook={setSelectedBook} />
       <Footer />
     </div>
   );
